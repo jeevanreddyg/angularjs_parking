@@ -1,0 +1,97 @@
+<html ng-app >
+<head>
+<title>Parking management system</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script type="text/javascript" src="js/parking.js">
+		</script>
+</head>
+<body>
+<div id="maincontainer">
+
+<div id="topsection"><div class="innertube"><h1>Parking management system</h1></div></div>
+
+<div id="contentwrapper">
+<div id="contentcolumn">
+<div class="innertube" ng-controller="ParkingCtrl">
+	<div>
+	<span>{{freeparkingslots()}} of {{pakingslist.length}} free slots</span> <br />
+      <button ng-click="allocate()" name="allocate">allocate</button> <br />
+    </div>
+	<div>
+		<table>
+			<tr ng-repeat="slot in pakingslist">
+				
+				<td>
+					<img src="images/free.png" ng-hide="slot.isParked" width="30px" height="30px"/>
+					<img src="images/bike.png" ng-show="slot.isParked" width="30px" height="30px"/>
+				</td>
+				<td>
+					<a ng-click="deallocate($index)" ng-show="slot.isParked">
+						<img src="images/remove.png" width="30px" height="30px" style="cursor:pointer" title="remove slot"/>
+					</a> <br />
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</div>
+</div>
+</div>
+
+<div id="leftcolumn">
+<div class="innertube" ng-controller="ParkingCtrl">
+	<div>
+	<span>{{freeparkingslots()}} of {{pakingslist.length}} free slots</span> <br />
+      <button ng-click="allocate()" name="allocate">allocate</button> <br />
+    </div>
+	<div>
+		<table>
+			<tr ng-repeat="slot in pakingslist">
+				
+				<td>
+					<img src="images/free.png" ng-hide="slot.isParked" width="30px" height="30px"/>
+					<img src="images/car.png" ng-show="slot.isParked" width="30px" height="30px"/>
+				</td>
+				<td>
+					<a ng-click="deallocate($index)" ng-show="slot.isParked">
+						<img src="images/remove.png" width="30px" height="30px" style="cursor:pointer" title="remove slot"/>
+					</a> <br />
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</div>
+
+</div>
+
+<div id="rightcolumn">
+<div class="innertube" ng-controller="ParkingCtrl">
+	<div>
+	<span>{{freeparkingslots()}} of {{pakingslist.length}} free slots</span> <br />
+      <button ng-click="allocate()" name="allocate">allocate</button> <br />
+    </div>
+	<div>
+		<table>
+			<tr ng-repeat="slot in pakingslist">
+				
+				<td>
+					<img src="images/free.png" ng-hide="slot.isParked" width="30px" height="30px"/>
+					<img src="images/truck.png" ng-show="slot.isParked" width="30px" height="30px"/>
+				</td>
+				<td>
+					<a ng-click="deallocate($index)" ng-show="slot.isParked">
+						<img src="images/remove.png" width="30px" height="30px" style="cursor:pointer" title="remove slot"/>
+					</a> <br />
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</div>
+</div>
+<div id="footer">Footer</div>
+</div>
+</body>
+</html>
